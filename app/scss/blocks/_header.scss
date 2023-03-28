@@ -1,0 +1,223 @@
+.header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;     
+    padding: 25px 0;
+    gap: 50px; 
+    @include tablet{
+        justify-content: space-between;
+    }      
+}
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-grow: 1;
+    transition: $transition;
+    @include tablet{           
+        position: fixed;
+        padding: 10px 80px;        
+        flex-direction: column;
+        height: 100%;
+        width: 100vw;
+        justify-content: center;
+        z-index: 55;
+        background: $bg;
+        left: 0;
+        top: 0;
+        gap: 80px;        
+        transform: translateX(-150%);
+        &--open{
+            transform: translate(0);                
+        }
+    }
+    @include mobile{
+        gap: 30px;;
+    }
+    &__list {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;        
+        gap: 50px;
+        @include tablet{
+            flex-direction: column;            
+            justify-content: center;
+            gap: 30px;
+        }
+        @include mobile{
+            padding: 0 20px;
+            gap: 20px;
+        }
+    }    
+    &__list-link {  
+        @include text($ff, 700, 1.6rem, 2rem, $title);  
+        padding: 5px 5px;
+        background: linear-gradient(#971090 0 0) 100% 0, linear-gradient(#971090 0 0) 0 0,
+        linear-gradient(#971090 0 0) 0 100%, linear-gradient(#971090 0 0) 100% 100%;
+        background-repeat: no-repeat;
+        background-size: 0% 2px, 2px 0%;
+        transition: $transition;
+        @include tablet{
+            @include text($ff, 700, 2.4rem, 4rem, $white);
+        }
+        @include mobile{
+            @include text($ff, 700, 1.6rem, 2rem, $white);
+        }    
+        &:hover {
+            background-size: 100% 2px, 2px 100%;
+            color: $title;            
+            transform: translateY(-5px);
+            box-shadow: 0px 10px 20px rgba(191, 194, 197, 0.7);
+        }
+        &:active {
+            transform: translateY(-2px);
+            box-shadow: 0px 5px 10px rgba(191, 194, 197, 1);
+        }
+    }
+    &__sign {
+        @include text($ff, 700, 1.6rem, 2rem, $title);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 50px; 
+        
+        & a{
+            @include tablet{
+                @include text($ff, 700, 2.4rem, 4rem, $white);
+                background: transparent;                
+            }
+            @include mobile{
+                @include text($ff, 700, 1.6rem, 2rem, $white);
+            }            
+        }
+        @include tablet{                   
+            flex-direction: column;            
+            justify-content: center;
+            gap: 30px;
+        }
+        &-link{
+            display: inline-block;
+            border: 0;
+            outline: 0;
+            padding: 1.5rem 3rem;
+            background: transparent;
+            border-radius: 33px;
+            position: relative; 
+            transition: 0.5s;
+            overflow: hidden; 
+            &::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100%;
+                background: $bg;
+                transition: $transition;
+                z-index: -1;
+            } 
+            &:hover::before {
+                left: 0%;
+                color: $white;
+            } 
+            &:hover {                
+                color: $white;
+            }    
+        } 
+        
+    }    
+    &__burger{
+        display: none;
+        align-items: center;        
+        position: relative;
+        z-index: 100;        
+        width: 40px;
+        height: 30px;
+        cursor: pointer;
+        @include tablet{            
+            display: flex;
+            position: relative;                        
+        }
+        @include mobile{
+            width: 30px;
+            height: 20px;
+        }
+        span{
+            height: 3px;
+            width: 100%;
+            border-radius: 4px;
+            transform: scale(1);
+            background-color: $black;
+            transition: $transition;
+            border: 0;
+        }
+        &::before, &::after {
+            content: '';
+            position: absolute;
+            height: 3px;
+            width: 100%;
+            border: 0;
+            border-radius: 4px;
+            background-color: $black;
+            transition: $transition;            
+        }
+        &::before {
+            top: 0;
+        }
+        &::after {
+            bottom: 0;
+        }
+        &--open span {
+            transform: scale(0);
+        }
+        &--open::before {
+            top: 50%;
+            transform: rotate(-45deg) translate(0, -50%);
+            @include tablet{
+                background-color: $white;                
+            }    
+        }
+        &--open::after {
+            bottom: 50%;
+            transform: rotate(45deg) translate(0, 50%);
+            @include tablet{
+                background-color: $white;                
+            } 
+        }
+    }    
+}
+.btn--header {
+    flex-grow: 0;
+    position: relative;       
+    transform: perspective(500px) rotateY(-15deg);    
+    text-shadow: 6px 3px 2px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.02);    
+    transition: 0.5s;
+    overflow: hidden;
+    @include tablet{
+        border: 2px solid $white;
+        box-shadow: 0 0 6px 2px $white;
+    }
+}
+.btn--header:hover {
+    transform: perspective(500px) rotateY(15deg);
+    text-shadow: -6px 3px 2px rgba(0, 0, 0, 0.2);
+}
+.btn--header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, #fff, transparent);
+    transition: $transition;
+}
+.btn--header:hover::before {
+    left: 100%;
+}
+.logo {
+    @include mobile{
+        width: 150px;
+    }
+}

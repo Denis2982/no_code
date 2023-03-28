@@ -1,0 +1,89 @@
+.statistic {
+    // margin-bottom: 165px;
+    border: 1px solid $border;
+    border-radius: 21px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px 30px;
+    background-color: $white;
+    text-align: center;
+    position: relative; 
+    @include tablet-small{
+        padding: 30px 15px;
+    }
+    @include mobile{
+        padding: 10px 10px;        
+    }
+         
+    &::after{
+        content: '';
+        display: block;
+        position: absolute;
+        width: 288px;
+        height: 288px;
+        border-radius: 50%;
+        left: -202px;
+        top: 20px;
+        background: $bg;
+        z-index: -1;
+        @include tablet-small{
+            display: none;
+        }
+    }
+    &::before{
+        content: '';
+        display: block;
+        position: absolute;
+        width: 86px;
+        height: 86px;
+        border-radius: 50%;
+        left: 0;
+        top: 222px;
+        background: $bg-circle;
+        z-index: 0;
+        @include tablet-small{
+            display: none;
+        }
+    }
+    &__block {
+        flex-grow: 1;        
+        position: relative;
+        &:not(:last-child)::before {            
+                content: '';
+                position: absolute;
+                display: block;
+                width: 1px;
+                height: calc(100% + 40px);
+                z-index: 5;
+                top: -20px;
+                right: 0;
+                background-color: $border; 
+                @include mobile{
+                    top: 0;
+                    height: 100%        
+                }          
+        }        
+    }
+
+    &__title {
+        @include text($f-mon, 700, 4rem, 5rem, $title);
+        margin-bottom: 2px; 
+        @include tablet-small{
+            @include text($f-mon, 700, 3rem, 4rem, $title);
+        }
+        @include mobile{
+            @include text($f-mon, 700, 1.6rem, 2rem, $title);
+        }     
+    }
+
+    &__text {
+        @include text($ff, 400, 1.6rem, 2rem, $text);
+        @include mobile{
+            @include text($ff, 400, 1.2rem, 1.8rem, $text);
+        }   
+    }
+
+    
+}
+

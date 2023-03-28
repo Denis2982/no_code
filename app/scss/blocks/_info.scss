@@ -1,0 +1,93 @@
+.info {
+    margin-bottom: 100px;
+    padding-top: 165px;
+    overflow: hidden;
+   
+
+    &__inner {
+        position: relative;
+        &::before{
+            content: '';
+            display: block;
+            position: absolute;
+            width: 382px;
+            height: 382px;
+            border-radius: 50%;
+            right: -408px;
+            top: -165px;
+            background: $bg-circle;            
+            z-index: -5;            
+        }
+    }
+
+    &__block {
+        padding: 40px 50px;
+        background: $bg-block;
+        display: flex;
+        gap: 20px;
+        border-radius: 21px;        
+        &:not(:last-child){
+            margin-bottom: 30px;
+        }
+    }
+
+    &__block-icon {
+        min-width: 64px;
+        height: 64px;
+        border-radius: 50%;
+        background-color: $white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+    }
+    &__block-desc {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        flex-grow: 1
+    }
+    &__block-title {
+        @include text($f-mon, 700, 2.4rem, 2.4rem, $title); 
+        margin-bottom: 20px;
+    }
+
+    &__block-text {
+        @include text($ff, 400, 1.6rem, 2.4rem, $text); 
+        max-width: 500px;
+    }
+}
+.title--info {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.subtitle--info {
+    margin: 0 auto;
+    margin-bottom: 61px;
+    text-align: center;
+    max-width: 550px;    
+}
+.btn--info {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);    
+    padding: 23px 10px;
+    width: 278px;
+    font-weight: 600;
+    align-self: center;
+    text-align: center;
+    gap: 10px;
+    position: relative;    
+    &::before{
+        content: '';
+        display: block;
+        position: absolute;
+        width: 1px;
+        height: calc(100% - 36px);
+        background-color: $bg-before;
+        top: 18px;
+        left: 50%;
+        transform: translateX(-50%);
+
+    }
+    
+}

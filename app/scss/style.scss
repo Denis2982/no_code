@@ -1,0 +1,16 @@
+@import 'reset';
+@import 'vars';
+@import 'mixins';
+@import 'global';
+@import '../../node_modules/swiper/swiper-bundle.css';
+
+
+@import './blocks/header';
+@import './blocks/learn';
+@import './blocks/statistic';
+@import './blocks/info';
+@import './blocks/instructor';
+@import './blocks/students';
+@import './blocks/faq';
+@import './blocks/started';
+@import './blocks/footer';

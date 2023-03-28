@@ -1,0 +1,39 @@
+html {
+  font-size: 10px;
+}
+
+body {
+	height: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  background-color: $white;
+  overflow-x: hidden;
+}
+
+.container{
+  max-width: 1150px;
+  margin: 0 auto;
+  padding: 0 15px;  
+}
+
+.title {
+  @include text($f-mon, 700, 4.6rem, 5.6rem, $title);  
+}
+
+.subtitle{
+  @include text($ff, 400, 2rem, 3rem, $text);
+}
+
+.btn {
+  @include text($ff, 700, 1.6rem, 2rem, $white);
+  display: inline-block;
+  border: 0;
+  outline: 0;
+  padding: 1.5rem 3rem;
+  background: $bg;
+  border-radius: 33px;    
+  cursor: pointer;
+}
+
+
+

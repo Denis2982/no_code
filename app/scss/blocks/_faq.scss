@@ -1,0 +1,76 @@
+.faq {
+    margin-bottom: 20px;
+
+
+    &__accordian {
+       
+    }
+
+    &__accordian-card {
+        margin: 0 auto;
+        max-width: 850px;
+        padding: 40px;
+        border: 1px solid $bg-border;        
+        border-radius: 21px; 
+        cursor: pointer;       
+        &:not(:last-child){
+            margin-bottom: 20px;
+        }
+        &.active .faq__accordian-desc{
+            max-height: 300px;
+            animation: text 1s ease-in-out;            
+        }
+        &.active .faq__accordian-expand {
+            transform: rotate(180deg);            
+        }
+       
+    }
+
+    &__accordian-header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__accordian-title {
+        @include text($f-mon, 700, 2rem, 2.4rem, $title);
+    }
+
+    &__accordian-expand{
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        background: $bg-opac;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: $transition;        
+    }
+
+    &__accordian-desc {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 1s ease;
+    }
+
+    &__accordian-text {
+        @include text($ff, 400, 1.6rem, 2.6rem, $text);
+        padding-top: 18px;
+        padding-bottom: 5px;
+    }
+}
+.title--faq {
+    margin-bottom: 51px;
+    text-align: center;
+}
+
+@keyframes text {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

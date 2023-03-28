@@ -1,0 +1,110 @@
+.learn {
+    margin-bottom: 100px;
+    position: relative;    
+    &::after{
+        content: '';
+        position: absolute;
+        height: 100%;
+        max-width: 1090px;
+        width: 100%;
+        background: $bg;
+        opacity: 0.05;
+        border-radius: 0px 20px 20px 0px;
+        left: 0;
+        top: 0;  
+        z-index: -1; 
+    } 
+    
+    &__desc-title {
+        @include text($f-mon, 700, 6rem, 6.8rem, $title);     
+        letter-spacing: -0.1rem;
+        padding: 134px 0 20px;
+        max-width: 537px;
+    }
+
+    &__desc-text {
+        @include text($ff, 400, 2rem, 3rem, $text); 
+        padding-bottom: 40px;
+        max-width: 560px;
+    }
+
+    &__video {
+        border-radius: 20px 0px 0px 20px;
+        
+    }
+    &__video-bg {
+        position: absolute;
+        right: 0;
+        z-index: 5;
+        top: 50%;
+        transform: translateY(-50%);
+        box-shadow: 0px 32px 44px $shadow;
+        border-radius: 20px 0px 0px 20px;
+        
+       
+    }
+
+    &__video-img {
+        position: absolute;
+        right: calc(590px / 2 - 35px);
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 10;        
+    }
+
+    &__students {
+        padding-bottom: 94px;
+        padding-top: 100px;
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        cursor: pointer;
+    }
+
+    &__students-img {
+        display: flex;
+        img {
+            &:not(:first-child){
+                margin-left: -20px;
+            }
+        }
+    }
+
+    &__students-text {
+        @include text($ff, 400, 1.6rem, 2rem, $text);
+        & span {
+            color: $purpure;
+        } 
+    }
+}
+.btn--learn {
+    padding: 20px 49px;
+    flex-grow: 0;
+    position: relative;       
+    transform: perspective(500px) rotateY(15deg);    
+    text-shadow: 6px 3px 2px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.02);    
+    transition: 0.5s;
+    overflow: hidden;
+    @include tablet{
+        border: 2px solid $white;
+        box-shadow: 0 0 6px 2px $white;
+    }
+}
+.btn--learn:hover {
+    transform: perspective(500px) rotateY(-15deg);
+    text-shadow: -6px 3px 2px rgba(0, 0, 0, 0.2);
+}
+.btn--learn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, #fff, transparent);
+    transition: $transition;
+}
+.btn--learn:hover::before {
+    left: -100%;
+}
