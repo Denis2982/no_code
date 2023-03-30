@@ -3,7 +3,14 @@
     color: $white;
     padding: 120px 0;
     margin-bottom: 150px;
-
+    @include desctop-small{          
+        margin-bottom: 100px; 
+        padding: 80px 20px;       
+    }
+    @include mobile{
+        margin-bottom: 50px;
+        padding: 50px 20px;
+    }     
     &__card {
         box-sizing: border-box;
         padding: 50px 45px 40px 45px;
@@ -11,41 +18,66 @@
         border-radius: 20px;
         background: $bg-card;
         transform: translateX(26%);
+        @include desctop-small{          
+           padding: 20px;        
+        }
+        @include mobile{
+            border-radius: 10px;
+            padding: 15px;
+        }   
     }
-
     &__card-text {
         @include text($ff, 400, 2rem, 3rem, $white);
         margin-bottom: 30px;
+        @include desctop-small{          
+            font-size: 1.5rem;
+            line-height: 1.7rem;       
+        }
+        @include mobile{
+            font-size: 1.2rem;
+            line-height: 1.4rem; 
+        }   
     }
-
     &__card-persone {
         display: flex;
         align-items: center;
         gap: 14px;
+        @include mobile{
+           gap: 5px;
+        }   
+        img {
+            @include mobile{
+                width: 40px;
+                height: 40px;                
+            }   
+        }
     }
     &__persone{
         display: flex;
         flex-direction: column;
         gap: 4px;
     }
-
     &__persone-name {
         @include text($ff, 700, 1.6rem, 2rem, $white);
+        @include mobile{
+            font-size: 1.2rem;
+            line-height: 1.5rem; 
+        }   
     }
-
     &__persone-prof {
         @include text($ff, 400, 1.6rem, 2rem, $white);
         opacity: 0.8;
-    }
-    
+        @include mobile{
+            font-size: 1.2rem;
+            line-height: 1.4rem; 
+        }   
+    }    
 }
-
 .title--students {
     text-align: center;
     color: $white; 
     margin-bottom: 20px;   
 }
-
 .subtitle--students {
     margin: 0 auto; 
     color: $white;
@@ -53,24 +85,7 @@
     max-width: 550px;
     margin-bottom: 100px;
     opacity: 0.8;
-}
-.swiper {
-    
-}
-.swiper-wrapper {
-    
-    
-}
-.swiper-slide {
-   
-    
-}
-.swiper-pagination {
-    
-}
-.swiper-button-prev {
-}
-.swiper-button-next {
-}
-.swiper-scrollbar {
+    @include mobile{
+        margin-bottom: 50px; 
+    }   
 }

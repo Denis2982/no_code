@@ -49,38 +49,44 @@
             gap: 20px;
         }
     }    
-    &__list-link {  
-        @include text($ff, 700, 1.6rem, 2rem, $title);  
-        padding: 5px 5px;
+    &__list-item { 
+        padding: 5px 10px;
         background: linear-gradient(#971090 0 0) 100% 0, linear-gradient(#971090 0 0) 0 0,
         linear-gradient(#971090 0 0) 0 100%, linear-gradient(#971090 0 0) 100% 100%;
         background-repeat: no-repeat;
         background-size: 0% 2px, 2px 0%;
         transition: $transition;
         @include tablet{
-            @include text($ff, 700, 2.4rem, 4rem, $white);
-        }
-        @include mobile{
-            @include text($ff, 700, 1.6rem, 2rem, $white);
-        }    
+            background: linear-gradient($white 0 0) 100% 0, linear-gradient($white 0 0) 0 0,
+            linear-gradient($white 0 0) 0 100%, linear-gradient($white 0 0) 100% 100%;
+            background-repeat: no-repeat;
+            background-size: 0% 2px, 2px 0%;
+        }          
         &:hover {
             background-size: 100% 2px, 2px 100%;
             color: $title;            
             transform: translateY(-5px);
-            box-shadow: 0px 10px 20px rgba(191, 194, 197, 0.7);
+            box-shadow: 0px 10px 20px rgba(191, 194, 197, 0.7);            
         }
         &:active {
             transform: translateY(-2px);
             box-shadow: 0px 5px 10px rgba(191, 194, 197, 1);
         }
     }
-    &__sign {
+    &__list-link {
         @include text($ff, 700, 1.6rem, 2rem, $title);
+        @include tablet{
+            @include text($ff, 700, 2.4rem, 4rem, $white);
+        }
+        @include mobile{
+            @include text($ff, 700, 1.6rem, 2rem, $white);
+        }  
+    }
+    &__sign {       
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 50px; 
-        
+        gap: 50px;         
         & a{
             @include tablet{
                 @include text($ff, 700, 2.4rem, 4rem, $white);
@@ -96,6 +102,7 @@
             gap: 30px;
         }
         &-link{
+            @include text($ff, 700, 1.6rem, 2rem, $title);
             display: inline-block;
             border: 0;
             outline: 0;
@@ -115,6 +122,9 @@
                 background: $bg;
                 transition: $transition;
                 z-index: -1;
+                @include tablet{
+                    display: none;
+                }                
             } 
             &:hover::before {
                 left: 0%;
@@ -122,9 +132,18 @@
             } 
             &:hover {                
                 color: $white;
-            }    
-        } 
-        
+                @include tablet{
+                    background: transparent;
+                    transform: translateY(-5px);
+                    box-shadow: 0 0 6px 2px $white;
+                }
+            }
+            &:active { 
+                @include tablet{                   
+                    transform: translateY(-2px);                    
+                }
+            }        
+        }         
     }    
     &__burger{
         display: none;

@@ -2,14 +2,20 @@
     padding-top: 63px;
     padding-bottom: 80px;
     background: $bg-block;
-
+    @include mobile{
+        padding: 40px 20px;
+    } 
     &__top {
         margin-bottom: 50px;
         display: flex;
         align-items: center;
+        justify-content: space-between;
         gap: 80px;
+        @include mobile{
+            flex-direction: column;
+            gap: 20px;
+        } 
     }
-
     &__form {
         background: $white;  
         border-radius: 33px;
@@ -18,20 +24,16 @@
         align-items: center;
         gap: 10px;
         padding-right: 8px;
-        width: 100%;
-        @include tablet-small{
-            padding-right: 8px;
-         } 
-         @include mobile{
-            box-shadow: 0;
+        width: 100%;        
+        @include mobile{            
             flex-direction: column;
-            border-radius: 0;
-            box-shadow: 10px 24px 54px $shadow;
+            border-radius: 0;            
             background: transparent;
             border: 0;
+            padding: 0;
+            gap: 20px;
         }                    
     }
-
     &__form-input {
         @include text($ff, 700, 1.6rem, 1.9rem, $text);            
         background: transparent;
@@ -41,85 +43,130 @@
         padding: 23px 40px;
         flex-grow: 1;   
         @include tablet-small{
-           padding: 15px 20px;
-           font-size: 1.6rem;
-           line-height: 2rem; 
+           padding: 15px 20px;           
         }  
         @include mobile{
             padding: 10px;
             background: $white;
-            width: 100%;            
+            width: 100%;
+            border-radius: 10px;
+            font-size: 1.4rem;            
         }   
         &::placeholder{
             @include text($ff, 400, 1.6rem, 1.9rem, $text);          
-            opacity: 0.5;            
-            @include tablet-small{
-                font-size: 1.6rem;
-                line-height: 2rem;                 
-            } 
+            opacity: 0.5; 
             @include mobile{
                 font-size: 1.4rem;
             }    
         }
     }
-
     &__link {
         display: flex;
         justify-content: center;
         gap: 120px;
-        align-items: flex-end  
+        align-items: flex-end;        
+        @include tablet-small{
+            display: none; 
+        }    
     }
-
-    &__help {
-    }
-
-    &__help-item {
-        
-    }
-
     & ul li {
         &:not(:last-child){
             margin-bottom: 20px;
         }
     }
-
     &__help-title, &__product-title {
         @include text($ff, 700, 1.6rem, 2rem, $title);
     }
-
     &__help-link, &__contact-link, &__product-link {
         @include text($ff, 400, 1.6rem, 2rem, $text);
     }
-
-    &__contact {
-    }
-
-    &__contact-item {
-    }
-
-    &__contact-link {
-    }
-
-    &__product {
-    }
-
-    &__product-item {
-    }
-
-    &__product-title {
-    }
-
-    &__product-link {
-    }
-}
-.container {
-}
-.logo {
-}
-.btn {
-}
+}    
 .btn--form {
     font-weight: 700;
+    @include tablet-small{
+       padding: 10px 25px; 
+    }  
 }
+// ---------------------------------------------------------------------
 
-
+.footer {      
+    &__accordian {
+        display: none;
+        @include tablet-small{
+        display: block;
+        }
+    }
+    &__accordian-card {
+        margin: 0 auto;
+        max-width: 500px;
+        padding: 20px;
+        border-bottom: 2px solid $title;
+        cursor: pointer;       
+        &:not(:last-child){
+            margin-bottom: 20px;
+            @include mobile{            
+                margin-bottom: 10px;
+            }
+        }
+        &.active .footer__accordian-desc{
+            max-height: 300px;
+            animation: footer 1s ease-in-out;            
+        }
+        &.active .footer__accordian-expand {
+            transform: rotate(180deg);            
+        }
+        @include mobile{            
+            padding: 5px;
+        }   
+    }
+    &__accordian-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+    }
+    &__accordian-title {
+        @include text($f-mon, 700, 2rem, 2.4rem, $title);
+        @include mobile{
+            font-size: 1.6rem;
+            line-height: 1.8rem; 
+        }
+    }
+    &__accordian-expand {       
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: transform .6s ease-in-out; 
+        flex-shrink: 0;
+        @include mobile{
+            width: 35px;
+            height: 35px; 
+        }    
+    }
+    &__accordian-desc {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 1.2s ease;
+    }
+    &__accordian-text {        
+        padding-top: 18px;
+        padding-bottom: 5px;
+        @include mobile{
+            font-size: 1.4rem;
+            line-height: 1.6rem; 
+        }          
+    }
+    @keyframes footer {
+        from {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    &__accordion-list a{
+        @include text($ff, 400, 1.6rem, 2.6rem, $text);
+    }
+}

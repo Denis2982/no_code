@@ -17,11 +17,21 @@ body {
 }
 
 .title {
-  @include text($f-mon, 700, 4.6rem, 5.6rem, $title);  
+  @include text($f-mon, 700, 4.6rem, 5.6rem, $title); 
+  @include tablet-small{          
+    @include text($f-mon, 700, 4rem, 4.6rem, $title);       
+  }
+  @include mobile{
+    @include text($f-mon, 700, 3rem, 3.5rem, $title);
+  } 
+
 }
 
 .subtitle{
   @include text($ff, 400, 2rem, 3rem, $text);
+  @include mobile{
+    @include text($ff, 400, 1.6rem, 2rem, $text);
+  }
 }
 
 .btn {
@@ -33,6 +43,9 @@ body {
   background: $bg;
   border-radius: 33px;    
   cursor: pointer;
+  @include mobile{          
+    font-size: 1.4rem;              
+} 
 }
 
 

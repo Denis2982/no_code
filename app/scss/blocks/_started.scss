@@ -5,31 +5,40 @@
     text-align: center;
     position: relative;
     overflow: hidden;
-    // &::after{
-    //     content: '';
-    //     display: block;
-    //     position: absolute;
-    //     width: 355px;
-    //     height: 355px;
-    //     border-radius: 50%;
-    //     right: -200px;
-    //     top: 65px;
-    //     background: $bg;
-    //     z-index: -1;
-    // }
-    // &::before{
-    //     content: '';
-    //     display: block;
-    //     position: absolute;
-    //     width: 123px;
-    //     height: 123px;
-    //     border-radius: 50%;
-    //     left: 0;
-    //     top: 0;
-    //     background: $bg-circle;
-    //     z-index: 1;
-    // }
-
+    @include tablet-small{
+        padding-bottom: 70px;
+        padding-top: 70px;
+    } 
+    &::after{
+        content: '';
+        display: block;
+        position: absolute;
+        width: 355px;
+        height: 355px;
+        border-radius: 50%;
+        right: -200px;
+        top: 65px;
+        background: $bg;
+        z-index: -1;
+        @include tablet{
+            display: none;
+        }   
+    }
+    &::before{
+        content: '';
+        display: block;
+        position: absolute;
+        width: 123px;
+        height: 123px;
+        border-radius: 50%;
+        right: 20px;
+        top: 20px;
+        background: $bg-circle;
+        z-index: 1;
+        @include tablet{
+            display: none;
+        } 
+    }
     &__banner {   
         margin: 0 auto;     
         padding: 8px 35px;
@@ -49,17 +58,19 @@
         }
     }
 }
-.title {
-}
 .title--started {
     margin: 0 auto;
     margin-bottom: 30px;   
     max-width: 650px;
-}
-.btn {
+    @include tablet{
+        padding: 0 20px;
+    } 
 }
 .btn--started {
     padding: 21px 49px;
+    @include mobile{
+        padding: 10px 20px; 
+    } 
 }
 .circle{
     display: block;

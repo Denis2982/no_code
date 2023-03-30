@@ -17,24 +17,28 @@ new Swiper('.swiper__students',{
 
   loop: true,
 
-  autoplay: {
-    delay: 3000,
-    disableOnInteraction: false,
-    pauseOnMouseEnter: true,
-  },
+  // autoplay: {
+  //   delay: 3000,
+  //   disableOnInteraction: false,
+  //   pauseOnMouseEnter: true,
+  // },
 
   speed: 1500,
 
-  // effect: 'coverflow',
-  // coverflowEffect: {
-  //   rotate: 20,
-  //   stretch: 10,
-  //   slideShadows: true,
-  // },
+  breakpoints: {
+    320: {
+      slidesPerView: 1.5,
+    },
+    992: {
+      slidesPerView: 2.5,
+    },
+  }
+
+
 
 });
 
-//Accordion
+//Accordion FAQ
 
 const faqs = document.querySelectorAll('.faq__accordian-card');
 
@@ -44,3 +48,12 @@ faqs.forEach(faq => {
   })
 })
 
+//Accordion footer
+
+const foot = document.querySelectorAll('.footer__accordian-card');
+
+foot.forEach(ft => {
+  ft.addEventListener('click', () => {
+    ft.classList.toggle('active');
+  })
+})

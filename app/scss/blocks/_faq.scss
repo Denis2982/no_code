@@ -1,11 +1,6 @@
 .faq {
     margin-bottom: 20px;
-
-
-    &__accordian {
        
-    }
-
     &__accordian-card {
         margin: 0 auto;
         max-width: 850px;
@@ -23,19 +18,24 @@
         &.active .faq__accordian-expand {
             transform: rotate(180deg);            
         }
-       
+        @include mobile{
+            border-radius: 10px; 
+            padding: 20px;
+        }   
     }
-
     &__accordian-header{
         display: flex;
         justify-content: space-between;
         align-items: center;
+        gap: 10px;
     }
-
     &__accordian-title {
         @include text($f-mon, 700, 2rem, 2.4rem, $title);
+        @include mobile{
+            font-size: 1.6rem;
+            line-height: 1.8rem; 
+        }   
     }
-
     &__accordian-expand{
         width: 48px;
         height: 48px;
@@ -44,26 +44,36 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        transition: $transition;        
+        transition: $transition; 
+        flex-shrink: 0;
+        @include mobile{
+            width: 35px;
+            height: 35px; 
+        }          
     }
-
     &__accordian-desc {
         max-height: 0;
         overflow: hidden;
         transition: max-height 1s ease;
     }
-
     &__accordian-text {
         @include text($ff, 400, 1.6rem, 2.6rem, $text);
         padding-top: 18px;
         padding-bottom: 5px;
+        @include mobile{
+            font-size: 1.4rem;
+            line-height: 1.6rem; 
+        }   
     }
 }
 .title--faq {
     margin-bottom: 51px;
     text-align: center;
+    @include mobile{
+        padding: 20px;
+        margin-bottom: 30px; 
+    }   
 }
-
 @keyframes text {
     from {
         opacity: 0;

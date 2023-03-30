@@ -1,5 +1,4 @@
 .statistic {
-    // margin-bottom: 165px;
     border: 1px solid $border;
     border-radius: 21px;
     display: flex;
@@ -11,11 +10,15 @@
     position: relative; 
     @include tablet-small{
         padding: 30px 15px;
+        border-radius: 10px;
     }
     @include mobile{
-        padding: 10px 10px;        
-    }
-         
+        padding: 10px 10px; 
+        flex-direction: column;  
+        gap: 40px;
+        max-width: 300px;
+        margin: 0 auto;
+    }         
     &::after{
         content: '';
         display: block;
@@ -48,42 +51,36 @@
     }
     &__block {
         flex-grow: 1;        
-        position: relative;
+        position: relative;        
         &:not(:last-child)::before {            
-                content: '';
-                position: absolute;
-                display: block;
-                width: 1px;
-                height: calc(100% + 40px);
-                z-index: 5;
-                top: -20px;
-                right: 0;
-                background-color: $border; 
-                @include mobile{
-                    top: 0;
-                    height: 100%        
-                }          
+            content: '';
+            position: absolute;
+            display: block;
+            width: 1px;
+            height: calc(100% + 40px);
+            z-index: 5;
+            top: -20px;
+            right: 0;
+            background-color: $border; 
+            @include mobile{
+                width: 80%;
+                height: 1px;
+                top: calc(100% + 20px);
+                padding: 0;
+                right: 50%;
+                transform: translateX(50%);                    
+            }                          
         }        
     }
-
     &__title {
         @include text($f-mon, 700, 4rem, 5rem, $title);
         margin-bottom: 2px; 
         @include tablet-small{
             @include text($f-mon, 700, 3rem, 4rem, $title);
-        }
-        @include mobile{
-            @include text($f-mon, 700, 1.6rem, 2rem, $title);
-        }     
+        }             
     }
-
     &__text {
-        @include text($ff, 400, 1.6rem, 2rem, $text);
-        @include mobile{
-            @include text($ff, 400, 1.2rem, 1.8rem, $text);
-        }   
-    }
-
-    
+        @include text($ff, 400, 1.6rem, 2rem, $text);         
+    }    
 }
 
