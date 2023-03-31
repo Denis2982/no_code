@@ -11,7 +11,7 @@
         padding-top: 70px;
     }  
     &__inner {
-        position: relative;
+        position: relative;        
         &::before{
             content: '';
             display: block;
@@ -31,10 +31,7 @@
         display: flex;
         gap: 20px;
         border-radius: 21px; 
-        margin-bottom: 30px;
-        &:hover{            
-            box-shadow: 1px 3px 7px 1px $purpure;
-        }       
+        margin-bottom: 30px;         
                 
         @include tablet-small{          
             display: grid;

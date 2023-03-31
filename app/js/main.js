@@ -58,5 +58,5 @@ foot.forEach(ft => {
 
 //Animation
 AOS.init({  
-  disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function  
+  disable: 'phone', // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function  
 });
