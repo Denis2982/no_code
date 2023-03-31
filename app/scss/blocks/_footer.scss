@@ -82,9 +82,9 @@
     }
 }    
 .btn--form {
-    font-weight: 700;
-    @include tablet-small{
-       padding: 10px 25px; 
+    font-weight: 700;     
+        @include tablet-small{
+        padding: 10px 25px; 
     }  
 }
 // ---------------------------------------------------------------------

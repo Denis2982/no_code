@@ -79,7 +79,7 @@
             @include text($ff, 700, 2.4rem, 4rem, $white);
         }
         @include mobile{
-            @include text($ff, 700, 1.6rem, 2rem, $white);
+            @include text($ff, 700, 1.4rem, 2rem, $white);
         }  
     }
     &__sign {       
@@ -93,7 +93,7 @@
                 background: transparent;                
             }
             @include mobile{
-                @include text($ff, 700, 1.6rem, 2rem, $white);
+                @include text($ff, 700, 1.4rem, 2rem, $white);
             }            
         }
         @include tablet{                   

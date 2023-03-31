@@ -12,7 +12,7 @@
             margin-bottom: 20px;
         }
         &.active .faq__accordian-desc{
-            max-height: 300px;
+            max-height: 400px;
             animation: text 1s ease-in-out;            
         }
         &.active .faq__accordian-expand {
@@ -46,6 +46,10 @@
         align-items: center;
         transition: $transition; 
         flex-shrink: 0;
+        &:hover{
+            scale: 1.2;
+            border: 1px solid #FFAE70;
+        }
         @include mobile{
             width: 35px;
             height: 35px; 

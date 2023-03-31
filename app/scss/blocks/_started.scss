@@ -68,6 +68,10 @@
 }
 .btn--started {
     padding: 21px 49px;
+    transition: $transition;
+    &:hover{
+        transform: translateY(-5px);        
+    }
     @include mobile{
         padding: 10px 20px; 
     } 

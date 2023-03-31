@@ -7,6 +7,7 @@ $(function () {
 
 })
 
+//Swiper
 
 new Swiper('.swiper__students',{
   grabCursor: true,
@@ -33,9 +34,6 @@ new Swiper('.swiper__students',{
       slidesPerView: 2.5,
     },
   }
-
-
-
 });
 
 //Accordion FAQ
@@ -57,3 +55,8 @@ foot.forEach(ft => {
     ft.classList.toggle('active');
   })
 })
+
+//Animation
+AOS.init({  
+  disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function  
+});

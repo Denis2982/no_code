@@ -1,5 +1,6 @@
 html {
   font-size: 10px;
+  overflow-x: hidden;
 }
 
 body {
@@ -43,6 +44,7 @@ body {
   background: $bg;
   border-radius: 33px;    
   cursor: pointer;
+  transition: $transition;
   @include mobile{          
     font-size: 1.4rem;              
 } 

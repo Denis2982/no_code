@@ -30,10 +30,12 @@
         background: $bg-block;
         display: flex;
         gap: 20px;
-        border-radius: 21px;        
-        &:not(:last-child){
-            margin-bottom: 30px;
-        }
+        border-radius: 21px; 
+        margin-bottom: 30px;
+        &:hover{            
+            box-shadow: 1px 3px 7px 1px $purpure;
+        }       
+                
         @include tablet-small{          
             display: grid;
             grid-template-columns: minmax(auto, 65px) 1fr;
@@ -99,6 +101,11 @@
     text-align: center;
     gap: 10px;
     position: relative;
+    transition: $transition;
+    &:hover{
+        transform: translateY(-5px);
+        box-shadow: 1px 3px 7px 1px #FFAE70;
+    }
     @include tablet-small{
         grid-column-start: 2;
         grid-column-end: 3;    
